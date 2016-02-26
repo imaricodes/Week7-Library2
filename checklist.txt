@@ -1,0 +1,97 @@
+Methods
+
+1. VerifyID2 (line#92, 99, 105)
+-requests user input: student ID#, or to type "M" to return to main menu
+-when ID is entered, program looks for corresponding student txt file
+-if file is found, user input is assigned to studentID variable
+-if file is not found, user recieves an error message and is returned to main menu
+
+2. LoadStudentRoster (line# 738, 953)
+-takes txt file with comma separated data as argument
+-creates a string array
+-splits each line of the text file on the comma and assigns values to the first and second index the array
+-the first and second inedex of that array are assigned respectievely to key and value pair of workingCatalog dictionary
+-array is erased and process repeated until each line of the txt file has been assigned to the workingCatalog dictionary
+
+3. LoadStaticCatalog (line# 885, 908)
+-takes txt file with comma separated data as argument
+-creates a string array
+-splits each line of the text file on the comma and assigns values to the first and second index the array
+-the first and second inedex of that array are assigned respectievely to key and value pair of staticCatalog dictionary
+-array is erased and process repeated until each line of the txt file has been assigned to the staticCatalog dictionary
+
+4. StudentProfile (line#669, 93)
+-the current student (identified with VerifyID2() has an array that stores profile information about the student
+-the method writes three student variables to console: StudentID, studentName, and resourcesCheckedOut
+-a  for loop searches the last three indeces of the currentStudentArray for resources checked out.  Which of these last three indeces are written to console  is conditional
+
+5. ListAvailableResourcesAlphabetical2(line# 8, 773)
+-workingCatalog dictionary is passed to CreateAvailableResourcesTable() which takes the data from workingCatalog and assigns it to a data table.
+-that data table is passed to ListAvailableResourcesAlphabetical2()
+-that datatable is passed to  a new DataView object then sorted alphabetically by  resource name
+-each row of the sorted table is written to  console
+-user chooses to return to main menu
+
+
+LIST
+1. ResourcesOutList(line# 438, 649, 651, 653, 657)
+-during checkout process, student name and resource title is stored in a variable
+-that variable is added to the ResroucesOutList
+-Streamwriter writes this list to a text file
+
+-the resource being returned and the student name are stored in a variable
+-that variable is compared to each string at each index of the ResourcesOutList, when a match is found, that index is removed from the ResourcesOutList
+-Streamwriter writes this list to a text file
+
+
+DICTIONARY
+1. workingCatalog (line# 285, 317, 319, 453, 567, 569, 779, 952)
+
+-keys are resoure titles, values are the number of resources available
+-when student checks out a resource, the key that matches the value of the resources to check out is found and the (#available) value of that resource is decremented by one
+-Streamwriter writes updated dictionary to txt file in csv format
+
+
+STREAMWRITER to save resources out:
+1. StreamWriter: saveStudentFile (line# 416)
+- writes student profile to txt file //add detail
+
+-name of txt file student's iD#
+
+2. StreamWriter:  saveResourcesOutToText (line# 439)
+- adds resrouce checked out to txt file //add detail
+
+
+3. StreamWriter: updateResourcesOutTextFile
+-uses foreach loop on resourceOutlIst, writes each index of the list to text file
+
+
+STRING BUILDER
+1. StirngBuilder: maxResourcesOut (line# 207)
+-create instance of stringbuilder named maxResourcesOut
+-Appends a literal string to the variable 'currentName', then writes result to the console
+
+2. StringBuilder: resourceAndStudent (line# 443)
+-appends currentTitleSearch, seperator, and currentName
+
+
+3. StringBuilder: workingCatalogBuildString (line# 465)
+-create instance of stringBuilder named workingCatalogBuildString
+-Appends three variables: the key and value of workingCatalog dictionary separated by separated variable (,)
+
+
+4. StringBuilder: currentStudentHeaderBuilder (line# 201, ...more)
+-create instance of stringBuilder named currentStudentHeaderBuilder (in body of method titled: CurrentStudentHeader()
+-appends "Current Account" with currentName variable
+
+
+
+
+
+
+
+
+
+
+
+

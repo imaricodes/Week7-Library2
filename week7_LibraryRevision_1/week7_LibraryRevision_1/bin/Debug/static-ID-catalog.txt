@@ -1,0 +1,11 @@
+b001,The Art of Unix Programming
+b002,Free Software
+b003,The Practice of Programming
+b004,Hacker Culture
+b005,Ghost in the Wires
+b006,After the Software Wars
+b007,Microsoft Visual Studio 2015
+b008,Beginning ASP.NET
+c001,Laptop #21
+c002,Laptop #22
+c003,Laptop #23

@@ -1,0 +1,111 @@
+Methods
+
+1. VerifyID2 (line# 96, 103, 109, 125)
+-requests user input: student ID#, or to type "M" to return to main menu
+-when ID is entered, program looks for corresponding student txt file
+-if file is found, user input is assigned to studentID variable
+-if file is not found, user recieves an error message and is returned to main menu
+
+2. LoadStudentRoster (line# 766, 1013)
+-takes txt file with comma separated data as argument
+-creates a string array
+-splits each line of the text file on the comma and assigns values to the first and second index the array
+-the first and second inedex of that array are assigned respectievely to key and value pair of workingCatalog dictionary
+-array is erased and process repeated until each line of the txt file has been assigned to the workingCatalog dictionary
+
+3. LoadStaticCatalog (line# 950, 1011)
+-takes txt file with comma separated data as argument
+-creates a string array
+-splits each line of the text file on the comma and assigns values to the first and second index the array
+-the first and second inedex of that array are assigned respectievely to key and value pair of staticCatalog dictionary
+-array is erased and process repeated until each line of the txt file has been assigned to the staticCatalog dictionary
+
+4. StudentProfile (line#697, 97)
+-the current student (identified with VerifyID2() has an array that stores profile information about the student
+-the method writes three student variables to console: StudentID, studentName, and resourcesCheckedOut
+-a  for loop searches the last three indeces of the currentStudentArray for resources checked out.  Which of these last three indeces are written to console  is conditional
+
+5. ListAvailableResourcesAlphabetical2(line# 801, 89)
+-workingCatalog dictionary is passed to CreateAvailableResourcesTable() which takes the data from workingCatalog and assigns it to a data table.
+-that data table is passed to ListAvailableResourcesAlphabetical2()
+-that datatable is passed to  a new DataView object then sorted alphabetically by  resource name
+-each row of the sorted table is written to  console
+-user chooses to return to main menu
+
+
+LIST
+1. ResourcesOutList(line# 36, 455, 674, 676, 678, 683,844, 845, 847, 972)
+-during checkout process, student name and resource title is stored in a variable
+-that variable is added to the ResroucesOutList
+-Streamwriter writes this list to a text file
+
+
+DICTIONARY
+1. workingCatalog (line# 34, 294, 326, 328, 468, 592, 807, 1012)
+
+-keys are resoure titles, values are the number of resources available
+-when student checks out a resource, the key that matches the value of the resources to check out is found and the (#available) value of that resource is decremented by one
+-Streamwriter writes updated dictionary to txt file in csv format
+
+
+STREAMWRITER to save resources out to txt:
+
+1. StreamWriter: updateResourcesOutTextFile (line# 680)
+-uses foreach loop on resourceOutlIst, writes each index of the list to text file
+
+
+STREAMREADER to read resources out text file to list:
+1. StreamWriter: loadResourcesOut (line# 970, 974)
+-uses foreach loop on resourceOutlIst, writes each index of the list to text file
+
+
+
+STRING BUILDER
+1. StingBuilder: maxResourcesOut (line# 221)
+-create instance of stringbuilder named maxResourcesOut
+-Appends a literal string to the variable 'currentName', then writes result to the console
+
+2. StringBuilder: resourceAndStudent (line# 448 - 457) 
+-appends currentTitleSearch, seperator, and currentName
+
+
+3. StringBuilder: workingCatalogBuildString (line# 470, 471)
+-create instance of stringBuilder named workingCatalogBuildString
+-Appends three variables: the key and value of workingCatalog dictionary separated by separated variable (,)
+
+
+4. StringBuilder: currentStudentHeaderBuilder (line# 203,204)
+-create instance of stringBuilder named currentStudentHeaderBuilder (in body of method titled: CurrentStudentHeader()
+-appends "Current Account" with currentName variable
+
+
+BREAKING PROGRAM
+
+Validate user input: studentID1
+1. I used this code to be sure user input is an integer:
+int menuChoice;
+bool res = int.TryParse(input, out menuChoice); (line#63)
+
+2. All dictionaries are case insensitive to prevent errors when matching/comparing resorce titles
+Example:
+static Dictionary<string, Int16> workingCatalog = new Dictionary<string, Int16>(StringComparer.OrdinalIgnoreCase); (line#34)
+
+3. User Input of names and resources
+User never enters student name or name of resource, this eliminates the possibility of user misspellings
+
+4. Any place input is requested of user is enclosed in do-while loop. If user enters anything other than choices presented, the loop restarts.
+(see line# 152 - 164)
+
+5. A regular expression matching funcion is used to validate user input when entering student iD.
+This regex pattern only allows a sequnce of three digits, anything else restars the do-while loop
+string pattern = @"^\d{3}$";  (line# 130)
+
+
+
+
+
+
+
+
+
+

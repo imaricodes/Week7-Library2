@@ -1,0 +1,11 @@
+The Art of Unix Programming,1
+Free Software,1
+The Practice of Programming,1
+Hacker Culture,1
+Ghost in the Wires,1
+After the Software Wars,1
+Microsoft Visual Studio 2015,1
+Beginning ASP.NET,1
+Laptop #21,1
+Laptop #22,1
+Laptop #23,1
